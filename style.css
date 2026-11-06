@@ -570,3 +570,98 @@ button {
         height: 220px;
     }
 }
+
+/* HEADER ALIGNMENT FIX */
+
+/* PC 화면 */
+@media (min-width: 701px) {
+    .header-inner {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .logo {
+        justify-self: start;
+        white-space: nowrap;
+    }
+
+    .nav {
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: clamp(18px, 2.2vw, 38px);
+    }
+
+    .nav a {
+        white-space: nowrap;
+    }
+
+    .header-button {
+        display: inline-block;
+        justify-self: end;
+        white-space: nowrap;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* 모바일 화면 */
+@media (max-width: 700px) {
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        white-space: nowrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .header-button {
+        display: none;
+    }
+}
+
+/* NAVIGATION HOVER EFFECT */
+
+.nav a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--gold);
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+    transform: scaleX(1);
+}
+
+/* 현재 섹션 표시 */
+.nav a.active {
+    font-weight: 600;
+}
