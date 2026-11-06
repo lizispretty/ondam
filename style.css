@@ -665,3 +665,66 @@ button {
 .nav a.active {
     font-weight: 600;
 }
+/* MENU CARD HOVER EFFECT */
+
+.menu-image {
+    transition: transform 0.6s ease;
+}
+
+.menu-card {
+    overflow: hidden;
+}
+
+.menu-card:hover .menu-image {
+    transform: scale(1.07);
+}
+
+.menu-card {
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+}
+
+.menu-content h3 {
+    transition: color 0.3s ease;
+}
+
+.menu-card:hover .menu-content h3 {
+    color: var(--gold);
+}
+
+/* SCROLL REVEAL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 메뉴 카드 순차 등장 */
+.menu-card.reveal:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.menu-card.reveal:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+/* 애니메이션 최소화 설정 존중 */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

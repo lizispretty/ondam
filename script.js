@@ -97,3 +97,28 @@ const sectionObserver = new IntersectionObserver(
 sections.forEach((section) => {
     sectionObserver.observe(section);
 });
+
+// 스크롤 등장 애니메이션
+
+const revealElements = document.querySelectorAll(
+    ".about-inner, .menu-card, .space-inner, .reservation-section .section-inner, .info-card"
+);
+
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+revealElements.forEach((element) => {
+    element.classList.add("reveal");
+    revealObserver.observe(element);
+});
