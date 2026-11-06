@@ -1,0 +1,551 @@
+
+:root {
+    --dark: #211710;
+    --brown: #38271d;
+    --gold: #c5a16c;
+    --cream: #eee5d5;
+    --white: #fffaf2;
+    --text: #30251d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 82px;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--white);
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* HEADER */
+
+.header {
+    height: 82px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(33, 23, 16, .97);
+    color: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(197, 161, 108, .25);
+}
+
+.logo {
+    font-family: 'Gowun Batang', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--cream);
+}
+
+.logo span {
+    font-size: 13px;
+    margin-left: 8px;
+    color: var(--gold);
+}
+
+.nav {
+    display: flex;
+    gap: 38px;
+    font-size: 14px;
+    color: #e7ddce;
+}
+
+.nav a {
+    transition: color .3s;
+}
+
+.nav a:hover {
+    color: var(--gold);
+}
+
+.header-button {
+    padding: 12px 23px;
+    border: 1px solid var(--gold);
+    color: var(--cream);
+    font-size: 13px;
+    transition: .3s;
+}
+
+.header-button:hover {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--cream);
+    font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 680px;
+    height: 82vh;
+    max-height: 850px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 12%;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(22, 14, 9, .88) 0%, rgba(22, 14, 9, .58) 45%, rgba(22, 14, 9, .12) 100%),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85')
+        center 55% / cover no-repeat;
+    color: white;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(20, 12, 7, .35), transparent 35%);
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-label,
+.section-label {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-family: 'Gowun Batang', serif;
+    font-size: clamp(45px, 6vw, 76px);
+    line-height: 1.4;
+    margin: 30px 0;
+    font-weight: 400;
+    text-shadow: 0 3px 20px rgba(0,0,0,.3);
+}
+
+.hero-description {
+    color: #eee4d6;
+    line-height: 2;
+    font-size: 15px;
+}
+
+.main-button {
+    display: inline-flex;
+    gap: 25px;
+    align-items: center;
+    margin-top: 40px;
+    padding: 17px 28px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.main-button:hover {
+    background: var(--cream);
+    transform: translateY(-3px);
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 12%;
+    right: 12%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #e0d4c3;
+    z-index: 2;
+}
+
+/* COMMON */
+
+.section {
+    padding: 115px 12%;
+}
+
+.section-heading {
+    margin: 25px 0 55px;
+}
+
+.section-heading h2,
+.about h2,
+.space-content h2 {
+    font-family: 'Gowun Batang', serif;
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 400;
+}
+
+.section-heading p {
+    margin-top: 15px;
+    color: #968b7d;
+    font-size: 14px;
+}
+
+/* ABOUT */
+
+.about {
+    background: var(--cream);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    margin-top: 45px;
+}
+
+.about-text {
+    line-height: 2.2;
+    color: #75695d;
+    font-size: 14px;
+}
+
+.about-text p + p {
+    margin-top: 20px;
+}
+
+/* MENU */
+
+.menu-section {
+    background: #211710;
+    color: var(--cream);
+}
+
+.menu-section .section-heading p {
+    color: #b6a795;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.menu-card {
+    background: #302219;
+    border: 1px solid rgba(197, 161, 108, .25);
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,.3);
+}
+
+.menu-image {
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    transition: background-size .4s;
+}
+
+.menu-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,.25), transparent 45%);
+}
+
+.menu-image-1 {
+    background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85');
+}
+
+.menu-image-2 {
+    background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85');
+}
+
+.menu-image-3 {
+    background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=85');
+}
+
+.menu-image span {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    color: white;
+    font-size: 12px;
+    z-index: 2;
+    letter-spacing: 2px;
+}
+
+.menu-detail {
+    padding: 27px;
+}
+
+.menu-detail h3 {
+    font-family: 'Gowun Batang', serif;
+    font-size: 22px;
+    color: var(--cream);
+}
+
+.menu-detail p {
+    color: #b9aa98;
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 15px 0;
+}
+
+.menu-detail strong {
+    color: var(--gold);
+    font-size: 17px;
+}
+
+.menu-notice {
+    margin-top: 25px;
+    color: #a99a88;
+    font-size: 11px;
+}
+
+/* SPACE */
+
+.space-section {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    padding: 90px 12%;
+    background:
+        linear-gradient(90deg, rgba(25, 16, 10, .88), rgba(25, 16, 10, .35)),
+        url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85')
+        center / cover no-repeat;
+    color: white;
+}
+
+.space-content {
+    max-width: 550px;
+}
+
+.space-content h2 {
+    margin: 30px 0;
+    line-height: 1.6;
+}
+
+.space-content p {
+    color: #e0d5c8;
+    line-height: 2;
+    font-size: 14px;
+}
+
+/* INFO */
+
+.info-section {
+    background: var(--cream);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.info-card {
+    padding: 35px 25px;
+    background: var(--white);
+    border: 1px solid #e8dece;
+    min-height: 190px;
+    transition: transform .3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card span {
+    font-size: 10px;
+    color: #a98754;
+    letter-spacing: 2px;
+}
+
+.info-card h3 {
+    margin: 20px 0 15px;
+    font-family: 'Gowun Batang', serif;
+    font-size: 21px;
+}
+
+.info-card p {
+    font-size: 12px;
+    color: #887b6e;
+    line-height: 2;
+}
+
+.contact-button {
+    margin-top: 15px;
+    border: none;
+    background: none;
+    color: #80613c;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 65px 12%;
+    text-align: center;
+    background: var(--dark);
+    color: white;
+}
+
+.footer-logo {
+    font-family: 'Gowun Batang', serif;
+    font-size: 28px;
+    color: var(--cream);
+}
+
+.footer p {
+    margin: 15px 0 35px;
+    color: #b6a795;
+    font-size: 12px;
+}
+
+.footer small {
+    color: #85796c;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+    .header {
+        height: 72px;
+        padding: 0 6%;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: #211710;
+        color: var(--cream);
+        flex-direction: column;
+        gap: 0;
+        padding: 15px 6%;
+        box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav a {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .header-button {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        min-height: 620px;
+        height: 78vh;
+        padding: 0 8%;
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 10vw, 58px);
+    }
+
+    .hero-bottom {
+        left: 8%;
+        right: 8%;
+        font-size: 9px;
+    }
+
+    .section {
+        padding: 85px 8%;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .menu-image {
+        height: 240px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .space-section {
+        min-height: 430px;
+        padding: 80px 8%;
+        background-position: center;
+    }
+
+    .footer {
+        padding: 55px 8%;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-label,
+    .section-label {
+        letter-spacing: 2px;
+    }
+
+    .hero-bottom {
+        letter-spacing: 1px;
+    }
+
+    .menu-detail {
+        padding: 22px;
+    }
+}
